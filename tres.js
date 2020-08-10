@@ -17,7 +17,17 @@ function mostrar()
 	var cantidad;
 
 
+	var contadorBariloche=0;
+	var contadorCataratas=0;
+	var contadorSalta=0;
 	var lugarMasElegido;
+
+	var titularConMasPasajeros;
+	var titularConCantidadPasajeros;
+	
+
+	var promedio=0;
+
 	respuesta = true;
 	while(respuesta){
 		nombre = prompt("Ingrese el nombre del titular");
@@ -40,7 +50,7 @@ function mostrar()
 			cantidad = parseInt(cantidad);
 		}while(isNaN(cantidad) || cantidad < 1);
 
-
+		//1
 		switch(lugar){
 			case "bariloche":
 				contadorBariloche++;
@@ -52,6 +62,31 @@ function mostrar()
 				contadorSalta++;
 				break;
 		}
+		//2
+		if(primeraVez){
+			primeraVez = false;
+			nombre = titularConMasPasajeros;
+			titularConCantidadPasajeros = cantidad;
+		}else{
+			if(cantidad > titularCantidadPasajeros){
+				titularConCantidadPasajeros = cantidad
+			}
+		}
+
+		//3
+		promedio
 		respuesta = confirm("Ingresan mas titulares?");
 	}
+	//1
+	if(contadorBariloche > contadorCataratas && contadorBariloche > contadorSalta){
+		lugarMasElegido = "bariloche";
+	}else{
+		if(contadorCataratas > contadorSalta){
+			lugarMasElegido = "cataratas";
+		}else{
+			lugarMasElegido = "salta";
+		}
+	}
+	document.write("Lugar mas elegido: "+lugarMasElegido);
+	document.write();
 }
