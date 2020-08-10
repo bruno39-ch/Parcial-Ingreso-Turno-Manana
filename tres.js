@@ -27,7 +27,10 @@ function mostrar()
 	
 
 	var promedio=0;
+	var contadorPersonasEnInvierno;
+	var viajesAinvierno=0;
 
+	var primeraVez = true;
 	respuesta = true;
 	while(respuesta){
 		nombre = prompt("Ingrese el nombre del titular");
@@ -68,13 +71,17 @@ function mostrar()
 			nombre = titularConMasPasajeros;
 			titularConCantidadPasajeros = cantidad;
 		}else{
-			if(cantidad > titularCantidadPasajeros){
+			if(cantidad > titularConCantidadPasajeros){
+				nombre = titularConMasPasajeros;
 				titularConCantidadPasajeros = cantidad
 			}
 		}
 
 		//3
-		promedio
+		if(temporada == "invierno"){
+			viajesAinvierno++;
+			contadorPersonasEnInvierno += cantidad;
+		}
 		respuesta = confirm("Ingresan mas titulares?");
 	}
 	//1
@@ -87,6 +94,8 @@ function mostrar()
 			lugarMasElegido = "salta";
 		}
 	}
+	promedio = contadorPersonasEnInvierno / viajesAinvierno;
 	document.write("Lugar mas elegido: "+lugarMasElegido);
-	document.write();
+	document.write("<br>Nombre del titular con mas pasajeros: "+titularConMasPasajeros);
+	document.write("<br>Promedio de personas que viajan en invierno: "+promedio);
 }
