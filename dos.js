@@ -7,5 +7,5 @@ b)la marca del más caro de los líquidos
 c)la marca del más liviano de los sólidos
 */function mostrar()
 {
-  alert("dos");
+  
 }
